@@ -39,38 +39,67 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
+
 </nav>
 
 <main role="main" class="container">
 
   <div class="starter-template">
-    <h1>Bootstrap starter template</h1>
-    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+    <h1>Select an option to begin</h1>
+	
+	<br> <br>
+	
+	<div class="container">
+	  <div class="row">
+		<div class="col">
+			<h2>FizzBuzz Algorithm</h2>
+			<p>Enter a positive integer and press "Start FizzBuzz" to list the FizzBuzz Algorithm from 1 to your number.</p>
+			<input type="number" class="form-control" id="fBInNum" placeholder=100>
+			<br><br>
+			<button type="submit" class="btn btn-secondary" onclick="fizzBuzz()">Start FizzBuzz</button>
+			
+			<br><br><br>
+			<p id="pFB"></p>
+		</div>
+		<div class="col">
+
+			  <div class="form-group">
+			  <h2>Random Number</h2>
+			  <p>Enter a positive integer and press "Generate Number" to generate a random number between 1 and your number.</p>
+				<input type="number" class="form-control" id="rNInNum" placeholder=100>
+				<br><br>
+				<button type="submit" class="btn btn-secondary" onclick="getRNum()">Generate number</button>
+			
+			  </div>
+			<br>
+			<h3 id="pRN"></h3>
+		</div>
+	  </div>
+	</div>
+	
+	    
+	<script>
+	var numbers = new Array();
+	function fizzBuzz(){
+	var inNum = document.getElementById("fBInNum").value;
+		for (var i=1; i <= inNum; i++){
+			if (i % 15 == 0) numbers.push("FizzBuzz");
+			else if (i % 3 == 0) numbers.push("Fizz");
+			else if (i % 5 == 0) numbers.push("Buzz");
+			else numbers.push(i);
+		}
+		
+		document.getElementById("pFB").innerHTML = numbers.join("<br>");
+	}
+	
+	function getRNum(){
+		var inNum = document.getElementById("rNInNum").value;
+		var x = Math.floor((Math.random() * inNum) + 1);
+		document.getElementById("pRN").innerHTML = x;
+	}
+
+	</script>
+	
   </div>
 
 </main><!-- /.container -->
